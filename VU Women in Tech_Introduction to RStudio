@@ -1,0 +1,35 @@
+library(datasets)
+library(dplyr)
+
+##Using head function to check the dataset Airquality
+
+head(airquality)
+
+##Using Summarise function to understand the basic quality of the dataset
+
+summary(airquality, na.rm = TRUE)
+
+##Using filter function 
+
+filter_1 = filter(airquality, Month < 5)
+
+##Using two conditions to filter a dataset
+filter_2 = filter(airquality, Wind > 10 & Month < 5)
+
+##Using count function.  
+
+count_1 = count(filter_1)
+count_2 = count(filter_2)
+
+##Using Arrange function 
+
+arrange(filter_1, desc(Month))
+
+
+##Creating a new variable by using Mutate function 
+
+WindTemp = mutate(airquality, WindTemp = Wind + Temp)
+##Creating a histogram 
+
+hist(filter_1$Temp)
+
